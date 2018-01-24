@@ -1,9 +1,15 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["masterGradesVar"])) {  
+if (!isset($_SESSION["masterGradesVar"])) {
+      if(filter_var($_POST["userid"], FILTER_VALIDATE_EMAIL)) {
+        $userid = $_POST["userid"];
+    }
+    else {
+        $userid = strstr($_POST["userid"], '@', true);
+    }
   $postData = array(
-    'userid' => $_POST["userid"], //replaced with user id
+    'userid' => $userid, //replaced with user id
     'password' => $_POST["password"], //repalced with user pw
     'semester' => 1 //change on new semester
 );
@@ -26,7 +32,7 @@ if($response === FALSE){
 
 // Decode the response
 $_SESSION["masterGradesVar"] = json_decode($response, TRUE);
-  
+
 if (count($_SESSION["masterGradesVar"]["course"]) == 0) {
   session_destroy();
   die("Login is invalid. Redirecting in 5 seconds...");
@@ -37,7 +43,7 @@ header('Location: ../index.html');
   session_destroy();
   die("Score only works for high school students with standard, 7 period schedules. We are working to support more/less classes in the future.");
 }
-} 
+}
 
 // apply indexonly below
 
@@ -101,7 +107,7 @@ if ($_SESSION["masterGradesVar"]["course"][0]["grade"] >= 90) {
   $firstClassGPA = 1;
 } elseif ($_SESSION["masterGradesVar"]["course"][0]["grade"] < 60) {
   $firstClassGPA = 0;
-}  
+}
 // second period
 if ($_SESSION["masterGradesVar"]["course"][1]["grade"] >= 90) {
   $secondClassGPA = 4;
@@ -113,7 +119,7 @@ if ($_SESSION["masterGradesVar"]["course"][1]["grade"] >= 90) {
   $secondClassGPA = 1;
 } elseif ($_SESSION["masterGradesVar"]["course"][1]["grade"] < 60) {
   $secondClassGPA = 0;
-}  
+}
 // third period
 if ($_SESSION["masterGradesVar"]["course"][2]["grade"] >= 90) {
   $thirdClassGPA = 4;
@@ -125,7 +131,7 @@ if ($_SESSION["masterGradesVar"]["course"][2]["grade"] >= 90) {
   $thirdClassGPA = 1;
 } elseif ($_SESSION["masterGradesVar"]["course"][2]["grade"] < 60) {
   $thirdClassGPA = 0;
-}  
+}
 // fourth period
 if ($_SESSION["masterGradesVar"]["course"][3]["grade"] >= 90) {
   $fourthClassGPA = 4;
@@ -137,7 +143,7 @@ if ($_SESSION["masterGradesVar"]["course"][3]["grade"] >= 90) {
   $fourthClassGPA = 1;
 } elseif ($_SESSION["masterGradesVar"]["course"][3]["grade"] < 60) {
   $fourthClassGPA = 0;
-} 
+}
 // fifth period
 if ($_SESSION["masterGradesVar"]["course"][4]["grade"] >= 90) {
   $fifthClassGPA = 4;
@@ -149,7 +155,7 @@ if ($_SESSION["masterGradesVar"]["course"][4]["grade"] >= 90) {
   $fifthClassGPA = 1;
 } elseif ($_SESSION["masterGradesVar"]["course"][4]["grade"] < 60) {
   $fifthClassGPA = 0;
-}  
+}
   // sixth period
 if ($_SESSION["masterGradesVar"]["course"][5]["grade"] >= 90) {
   $sixthClassGPA = 4;
@@ -161,7 +167,7 @@ if ($_SESSION["masterGradesVar"]["course"][5]["grade"] >= 90) {
   $sixthClassGPA = 1;
 } elseif ($_SESSION["masterGradesVar"]["course"][5]["grade"] < 60) {
   $sixthClassGPA = 0;
-}  
+}
   // seventh period
 if ($_SESSION["masterGradesVar"]["course"][6]["grade"] >= 90) {
   $seventhClassGPA = 4;
@@ -173,7 +179,7 @@ if ($_SESSION["masterGradesVar"]["course"][6]["grade"] >= 90) {
   $seventhClassGPA = 1;
 } elseif ($_SESSION["masterGradesVar"]["course"][6]["grade"] < 60) {
   $seventhClassGPA = 0;
-}  
+}
 
 // GPA Array
 $GPAarray = array($firstClassGPA, $secondClassGPA, $thirdClassGPA, $fourthClassGPA, $fifthClassGPA, $sixthClassGPA, $seventhClassGPA);
