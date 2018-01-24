@@ -3,10 +3,10 @@ session_start();
 
 if (!isset($_SESSION["masterGradesVar"])) {
       if(filter_var($_POST["userid"], FILTER_VALIDATE_EMAIL)) {
-        $userid = $_POST["userid"];
+        $userid = strstr($_POST["userid"], '@', true);
     }
     else {
-        $userid = strstr($_POST["userid"], '@', true);
+        $userid = $_POST["userid"];
     }
   $postData = array(
     'userid' => $userid, //replaced with user id
