@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["masterGradesVar"])) {
+if (!isset($_SESSION["masterGradesVar"]) OR isset($_POST["userid"])) {
       if(filter_var($_POST["userid"], FILTER_VALIDATE_EMAIL)) {
         $userid = strstr($_POST["userid"], '@', true);
     }
