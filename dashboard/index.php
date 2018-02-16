@@ -11,7 +11,7 @@ if (!isset($_SESSION["masterGradesVar"]) OR isset($_POST["userid"])) {
   $postData = array(
     'userid' => $userid, //replaced with user id
     'password' => $_POST["password"], //repalced with user pw
-    'semester' => 1 //change on new semester
+    'semester' => 2 //change on new semester
 );
 $ch = curl_init('https://385.elliotgluck.com/grades');
 curl_setopt_array($ch, array(
