@@ -1,6 +1,6 @@
 # Score
-###### A Simple Gradebook for Bellevue School District
-[![Build Status](https://travis-ci.org/ElliotGluck/Score.svg?branch=hhvm-branch)](https://travis-ci.org/ElliotGluck/Score)
+##### A Simple Gradebook for Bellevue School District
+[![Build Status](https://travis-ci.org/ElliotGluck/Score.svg?branch=hhvm-branch)](https://travis-ci.org/ElliotGluck/Score) [![StyleCI](https://styleci.io/repos/118741627/shield?branch=hhvm-branch)](https://styleci.io/repos/118741627)
 #### Abstract
 > Form follows function
 
