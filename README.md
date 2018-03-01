@@ -1,12 +1,14 @@
 # Score
-## A Simple Gradebook for Bellevue School District
+###### A Simple Gradebook for Bellevue School District
 [![Build Status](https://travis-ci.org/ElliotGluck/Score.svg?branch=hhvm-branch)](https://travis-ci.org/ElliotGluck/Score)
 #### Abstract
 > Form follows function
+
 Beginning in the 2017-18 school year, the Bellevue School District switched from the Aspen gradebook to StudentVue/Synergy. While Aspen was no masterpiece, Synergy left a lot to be desired, so we decided to reverse engineer it and make it better, and easier, for us and other students.
 
 #### API
 > "Functional Programming" - [mcklyde](https://github.com/mcklyde)
+
 Score is based off of the [mcklyde/SynergisticGism](https://github.com/mcklyde/SynergisticGism) API, written in Elixir. It is used as a wrapper that converts RESTful, JSON API calls that are developer friendly, to gross and ugly XML calls that Synergy can understand. It then takes the hideous XML response and converts it back into a RESTful JSON response.
 
 #### Design
