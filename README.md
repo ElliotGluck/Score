@@ -15,7 +15,7 @@ Score is based off of the [mcklyde/SynergisticGism](https://github.com/mcklyde/S
 Synergy is cluttered, non responsive, and looks like it is straight out of the 1990's web 1.0. We used Webflow to design the frontend experience, to make certan it is functional and beautiful across all devices and platforms.
 
 #### Getting Started
-You can host this project on almost any run of the mill PHP 7 web server~~, but we recommend using an HHVM stack for better performance. There are no artisan or composer prerequisits unless you do opt to use HHVM.~~ Update: you should probably use a standard web server (Nginx, Apache, Caddy, etc.) because Facebook is no longer supporting PHP in HHVM 😥
+You can host this project on almost any run of the mill PHP 7 web server ~~, but we recommend using an HHVM stack for better performance. There are no artisan or composer prerequisits unless you do opt to use HHVM.~~ Update: you should probably use a standard web server (Nginx, Apache, Caddy, etc.) because Facebook is no longer supporting PHP in HHVM 😥
 
 #### License
 
